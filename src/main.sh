@@ -45,7 +45,12 @@ case $choice in
 		;;
 
 	3)
-		search_regex "${filenames[@]}"
+		read -p "Please enter username to be deleted: " username
+		if [[ "$username" != "root" && "$username" != "sudo" ]]; then
+			delete_user $username
+		else
+			echo "You cannot delete root and sudo users"
+		fi
 		;;
 	4)
 		delete_log_data "${filenames[@]}"

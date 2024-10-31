@@ -14,3 +14,10 @@ change_password() {
 	passwd $username
 
 }
+
+delete_user() {
+
+	username=$1
+	userdel $username
+
+}
