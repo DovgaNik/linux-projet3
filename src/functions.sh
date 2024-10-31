@@ -28,3 +28,28 @@ new_group() {
 	groupadd $groupname
 
 }
+
+user_to_group() {
+
+	user=$1
+	group=$2
+
+	usermod -a -G $group $user
+
+}
+
+user_from_group() {
+
+	user=$1
+	group=$2
+
+	gpasswd --delete $user $group
+
+}
+
+delete_group() {
+
+	group=$1
+	groupdel $group
+
+}

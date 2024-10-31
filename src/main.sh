@@ -58,8 +58,20 @@ case $choice in
 		;;
 
 	5)
+		read -p "Please enter username: " username
+		read -p "Please enter groupname: " groupname
 
-		open_file "${filenames[@]}"
+		user_to_group $username $groupname
+		;;
+	6)
+		read -p "Please enter username: " username
+		read -p "Please enter groupname: " groupname
+
+		user_from_group $username $groupname
+		;;
+	7)
+		read -p "Please enter groupname: " groupname
+		delete_group $groupname
 		;;
 
 esac 
