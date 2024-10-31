@@ -9,13 +9,13 @@ fi
 
 echo "**********************************************"
 echo "*                                            *"
-echo "* 1. Create a user	                   *"
+echo "* 1. Create a user                           *"
 echo "* 2. Change password                         *"
-echo "* 3. Delete a user   		           *"
-echo "* 4. Create group				   *"
-echo "* 5. Add user to group	                   *"
+echo "* 3. Delete a user                           *"
+echo "* 4. Create group                            *"
+echo "* 5. Add user to group                       *"
 echo "* 6. Remove user from group                  *"
-echo "* 7. Delete a group	                   *"
+echo "* 7. Delete a group                          *"
 echo "* q. Exit                                    *"
 echo "*                                            *"
 echo "**********************************************"
@@ -29,11 +29,19 @@ case $choice in
 		;;
 
 	1)
-		display_all "${filenames[@]}"
+		read -p "Please enter username for a new user: " username
+		create_user $username	
+		
+		echo "Do you want to set a password? (y/n)"
+    		read confirm
+    		if [[ "$confirm" == "y" ]]; then
+    			change_password $username	
+		fi
 		;;
 
 	2)
-		delete_by_id "${filenames[@]}"
+		read -p "Please enter username to change the password: " username
+    		change_password $username	
 		;;
 
 	3)
