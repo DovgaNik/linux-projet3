@@ -21,3 +21,10 @@ delete_user() {
 	userdel $username
 
 }
+
+new_group() {
+
+	groupname=$1
+	groupadd $groupname
+
+}

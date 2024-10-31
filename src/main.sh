@@ -53,7 +53,8 @@ case $choice in
 		fi
 		;;
 	4)
-		delete_log_data "${filenames[@]}"
+		read -p "Please enter name of a new group: " groupname
+		new_group $groupname
 		;;
 
 	5)
