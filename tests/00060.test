@@ -1,0 +1,23 @@
+#!/bin/bash
+
+source src/functions.sh
+
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run as root"
+    exit
+fi
+
+new_group testgroup
+create_user testuser
+
+user_to_group testuser testgroup
+user_from_group testuser testgroup
+
+if groups testuser | grep -qw testgroup; then
+    echo "NOT PASSED"
+else
+    echo "PASSED"
+fi
+
+delete_user testuser
+delete_group testgroup
