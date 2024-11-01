@@ -1,0 +1,18 @@
+#!/bin/bash
+
+source src/functions.sh
+
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run as root"
+    exit
+fi
+
+new_group testgroup
+
+if getent group "testgroup" > /dev/null 2>&1; then
+    echo "PASSED: Group created."
+else
+    echo "NOT PASSED: Group does not exist."
+fi
+
+delete_group testgroup

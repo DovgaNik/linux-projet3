@@ -1,0 +1,20 @@
+#!/bin/bash
+
+source src/functions.sh
+
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run as root"
+    exit
+fi
+
+create_user testuser
+
+echo "Manual test"
+echo "Expected behavior is for the user to be created and their id being outputed"
+id testuser
+
+delete_user testuser
+
+echo "Expected behavior is for the user to be deleted and the comand outputting an error"
+id testuser
+

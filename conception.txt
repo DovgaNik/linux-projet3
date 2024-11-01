@@ -1,0 +1,7 @@
+The application allows user to perform basic tasks on the permission system of linux, namely users and group. The following functions are implemented:
+1. Add user
+2. Delete user
+3. Add group
+4. Delete group
+5. Add user to group
+6. Remove user from group
